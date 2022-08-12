@@ -9,7 +9,6 @@ import (
 
 // API represents request data for Central Credential Provider
 type API struct {
-	Host   string
 	AppID  string
 	Safe   string
 	Folder string
@@ -17,9 +16,9 @@ type API struct {
 }
 
 // GetCCP returns response from Central Credential Provider API
-func (r *API) GetCCP() (*CentralCredentialProvider, error) {
-	url := fmt.Sprintf("https://%s/AIMWebService/api/Accounts?AppID=%s&Safe=%s&Folder=%s&Object=%s",
-		r.Host, r.AppID, r.Safe, r.Folder, r.Object)
+func (r *API) GetCCP(baseURL string) (*CentralCredentialProvider, error) {
+	url := fmt.Sprintf("%s/AIMWebService/api/Accounts?AppID=%s&Safe=%s&Folder=%s&Object=%s",
+	baseURL, r.AppID, r.Safe, r.Folder, r.Object)
 
 	resp, err := http.Get(url)
 	if err != nil {

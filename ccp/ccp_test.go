@@ -6,6 +6,7 @@ import (
 )
 
 func TestToCCP(t *testing.T) {
+	t.Parallel()
 	httpBody := []byte(`
         {
             "Content": "ThisIsAnExample123",
@@ -51,6 +52,7 @@ func TestToCCP(t *testing.T) {
 }
 
 func TestToError(t *testing.T) {
+	t.Parallel()
 	httpBody := []byte(`
 		{
 			"ErrorCode": "APPAP008E",

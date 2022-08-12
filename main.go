@@ -8,13 +8,13 @@ import (
 
 func main() {
 	API := ccp.API{
-		Host:   "abc12345.ad.some.net",
 		AppID:  "Example_CCCP",
 		Safe:   "Example_CCCP",
 		Folder: "Root",
 		Object: "Example_user@ccp.example.some.net",
 	}
-	c, err := API.GetCCP()
+	baseURL := "abc12345.ad.some.net"
+	c, err := API.GetCCP(baseURL)
 	if err != nil {
 		fmt.Println(err)
 		return
